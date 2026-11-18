@@ -46,7 +46,7 @@ function canWrite() {
 
 function renderWho() {
   const who = $('who');
-  const name = (profile && profile.name) || session.user.email;
+  const name = (profile && profile.name) || Site.emailToId(session.user.email);
   const role = profile && profile.is_admin ? '관리자' : profile && profile.approved ? '승인 회원' : '승인 대기';
   who.textContent = `${name}님 (${role})`;
   who.className = 'who ' + (profile && (profile.approved || profile.is_admin) ? 'ok' : 'wait');
@@ -141,8 +141,8 @@ $('loginForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   const f = e.target.elements, msg = $('loginMsg');
   if (!configured) return say(msg, 'Supabase 설정 전입니다.');
-  const { error } = await sb.auth.signInWithPassword({ email: f.email.value.trim(), password: f.password.value });
-  if (error) say(msg, '이메일 또는 비밀번호가 올바르지 않습니다.');
+  const { error } = await sb.auth.signInWithPassword({ email: Site.idToEmail(f.userid.value), password: f.password.value });
+  if (error) say(msg, '아이디 또는 비밀번호가 올바르지 않습니다.');
 });
 
 document.querySelectorAll('.b-tab').forEach((x) => x.classList.toggle('active', x.dataset.board === board));

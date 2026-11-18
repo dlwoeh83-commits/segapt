@@ -31,7 +31,7 @@
         <ol class="join-steps">
           <li><b>1</b><span>신청서 작성</span></li>
           <li><b>2</b><span>조합 사무실에서 조합원 확인</span></li>
-          <li><b>3</b><span>승인 후 아이디·임시 비밀번호 안내</span></li>
+          <li><b>3</b><span>승인 후 아이디·비밀번호로 로그인</span></li>
         </ol>
         <p class="join-help">문의 <a href="tel:0316184510">031-618-4510~1</a></p>
       </aside>
@@ -42,7 +42,7 @@
           <legend>기본 정보</legend>
           <label>이름 <em>*</em><input type="text" name="name" autocomplete="name" required></label>
           <label>휴대폰 번호 <em>*</em><input type="tel" name="phone" autocomplete="tel" inputmode="numeric" placeholder="010-0000-0000" required></label>
-          <label>이메일 (로그인 아이디) <em>*</em><input type="email" name="email" autocomplete="email" placeholder="example@email.com" required></label>
+          <label>아이디 <em>*</em><input type="text" name="userid" autocomplete="username" placeholder="영문·숫자 4~16자" maxlength="16" required></label>
           <label>비밀번호 <em>*</em><input type="password" name="password" autocomplete="new-password" placeholder="8자 이상" minlength="8" required></label>
           <label>비밀번호 확인 <em>*</em><input type="password" name="password2" autocomplete="new-password" required></label>
         </fieldset>
@@ -60,7 +60,7 @@
           <label>전달 사항<textarea name="memo" rows="3" placeholder="조합에 전달하실 내용이 있으면 적어 주세요."></textarea></label>
         </fieldset>
         <label class="check"><input type="checkbox" name="agree" required>
-          <span>개인정보 수집·이용에 동의합니다. <small>(항목: 이름, 연락처, 이메일, 희망 아이디, 물건지 / 목적: 조합원 확인 및 회원 승인 / 보유: 승인 처리 후 회원 관리 기간 동안, 미승인 시 즉시 파기)</small></span></label>
+          <span>개인정보 수집·이용에 동의합니다. <small>(항목: 이름, 연락처, 아이디, 물건지 / 목적: 조합원 확인 및 회원 승인 / 보유: 승인 처리 후 회원 관리 기간 동안, 미승인 시 즉시 파기)</small></span></label>
         <button type="submit" class="btn btn-primary btn-block">가입 신청하기</button>
         <p class="form-msg" id="joinMsg" role="status" aria-live="polite"></p>
         <p class="join-note">※ 가입 후 조합원 확인을 거쳐 <b>승인된 회원만</b> 게시판을 이용할 수 있습니다. 비밀번호는 암호화되어 저장됩니다.</p>
@@ -74,9 +74,9 @@
       <p class="copy">© 세교1구역주택재개발정비사업조합. All rights reserved.</p>
     </div>
   </footer>
-  <script src="common.js?v=4"></script>
+  <script src="common.js?v=5"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
   <script src="config.js?v=2"></script>
-  <script src="join.js?v=2"></script>
+  <script src="join.js?v=3"></script>
 </body>
 </html>

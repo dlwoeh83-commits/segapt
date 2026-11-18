@@ -87,5 +87,10 @@
     $('gate').hidden = true; $('docBox').hidden = false;
     return { sb, session, isAdmin: !!me.is_admin, name: me.name || '' };
   }
-  window.Site = { gate };
+  // 아이디로 로그인·가입: Supabase는 이메일 형식이 필요해서 아이디를 내부용 주소로 바꿔 사용합니다.
+  // (예전에 이메일로 만든 계정은 @가 들어 있으면 그대로 이메일로 로그인)
+  const ID_DOMAIN = 'member.segyo1.kr';
+  const idToEmail = (id) => { const v = String(id || '').trim(); return v.includes('@') ? v : v.toLowerCase() + '@' + ID_DOMAIN; };
+  const emailToId = (email) => String(email || '').endsWith('@' + ID_DOMAIN) ? email.slice(0, -(ID_DOMAIN.length + 1)) : email;
+  window.Site = { gate, idToEmail, emailToId };
 })();
