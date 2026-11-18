@@ -51,6 +51,7 @@ function renderWho() {
   who.textContent = `${name}님 (${role})`;
   who.className = 'who ' + (profile && (profile.approved || profile.is_admin) ? 'ok' : 'wait');
   if (!profile || !(profile.approved || profile.is_admin)) who.textContent += ' — 조합원 확인 후 승인되면 게시글을 볼 수 있습니다.';
+  const pw = document.createElement('a'); pw.href = 'account.html'; pw.textContent = '비밀번호 변경'; pw.className = 'who-link'; who.append(pw);
 }
 
 let postPage = 1; const POST_PAGE = 20;

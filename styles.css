@@ -673,3 +673,6 @@ body { background: #fff; }
   .home .hero-photo { width: 72%; -webkit-mask-image: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.04) 8%, rgba(0,0,0,.14) 16%, rgba(0,0,0,.32) 25%, rgba(0,0,0,.55) 34%, rgba(0,0,0,.78) 44%, rgba(0,0,0,.94) 54%, #000 64%); mask-image: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,.04) 8%, rgba(0,0,0,.14) 16%, rgba(0,0,0,.32) 25%, rgba(0,0,0,.55) 34%, rgba(0,0,0,.78) 44%, rgba(0,0,0,.94) 54%, #000 64%); }
   .home .hero-photo img { object-position: 38% 45%; }
 }
+
+.who-link { margin-left: 14px; font-size: 13.5px; font-weight: 700; text-decoration: underline; color: var(--navy); }
+.auth-form label small { font-weight: 500; color: var(--muted); }
