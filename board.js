@@ -52,6 +52,7 @@ function renderWho() {
   who.className = 'who ' + (profile && (profile.approved || profile.is_admin) ? 'ok' : 'wait');
   if (!profile || !(profile.approved || profile.is_admin)) who.textContent += ' — 조합원 확인 후 승인되면 게시글을 볼 수 있습니다.';
   const pw = document.createElement('a'); pw.href = 'account.html'; pw.textContent = '비밀번호 변경'; pw.className = 'who-link'; who.append(pw);
+  if (profile && profile.is_admin) { const mg = document.createElement('a'); mg.href = 'members.html'; mg.textContent = '회원 관리(승인)'; mg.className = 'who-link'; who.append(mg); }
 }
 
 let postPage = 1; const POST_PAGE = 20;

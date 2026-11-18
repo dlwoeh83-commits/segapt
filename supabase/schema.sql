@@ -118,3 +118,9 @@ create unique index if not exists posts_src_unique on public.posts (board, src_i
 update storage.buckets set file_size_limit = 26214400 where id = 'attachments';
 drop policy if exists "posts update admin" on public.posts;
 create policy "posts update admin" on public.posts for update using (public.is_admin()) with check (public.is_admin());
+
+-- 회원 관리: 아이디 저장, 관리자의 회원 승인 권한
+alter table public.profiles add column if not exists login_id text not null default '';
+drop policy if exists "profiles update admin" on public.profiles;
+create policy "profiles update admin" on public.profiles for update using (public.is_admin()) with check (public.is_admin());
+-- (handle_new_user 함수는 login_id도 저장하도록 갱신됨: raw_user_meta_data->>login_id)
